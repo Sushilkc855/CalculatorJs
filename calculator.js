@@ -1,8 +1,9 @@
+document.getElementById('display').readOnly = true;
 let display = document.getElementById("display")
-      let value1= [];
+let value1= [];
       value1[0] = 0;
       value1[1] = 0;
-     
+      
       document.body.onclick = function(anEvent) {
         
         let b = anEvent.target.id;
@@ -22,7 +23,7 @@ let display = document.getElementById("display")
           else{
             display.value=0;
           }
-          }
+           }
 
           else if(b==='clear') {
             display.value=0;
@@ -39,15 +40,10 @@ let display = document.getElementById("display")
           else if (b==='dot'){
             if(!display.value.includes('.')){
               display.value +='.';
-            }
-            
+            } 
           }
-            
-          
 
          else if (b==='add' || b==='subtract' || b==='multiply' || b==='divide'){
-            
-          
             value1[0]=display.value;
             console.log(value1)
             display.value ='';
@@ -55,45 +51,72 @@ let display = document.getElementById("display")
           }
 
           else if (b==='equal'){
-            value1[1]=display.value;
-            switch(value1[2]){
-              case 'add':
-                value1[0]*= 1;
-                value1[1]*= 1;
-                value1[0]+=value1[1];
-                break
-              
-              case 'subtract':
-                  value1[0]-=value1[1];
-                  break
-                
-              case 'multiply':
-                  value1[0]= value1[0]*value1[1];
-                  break
-              
-              case 'divide':
-                  value1[0]= value1[0]/value1[1];
-                  break
-
-              default:
-                  return
-            }
-            
+            operaotrs();
             display.value=value1[0];
-
+            font();
           }
 
 
           else{
-      
               display.value += b;
+              font();
           }
       
     };
 
 
 
+function operaotrs(){
+  value1[1]=display.value;
+  switch(value1[2]){
+    case 'add':
+      value1[0]*= 1;
+      value1[1]*= 1;
+      value1[0]+=value1[1];
+      break
+    
+    case 'subtract':
+        value1[0]-=value1[1];
+        break
+      
+    case 'multiply':
+        value1[0]= value1[0]*value1[1];
+        break
+    
+    case 'divide':
+        value1[0]= value1[0]/value1[1];
+        break
 
+    default:
+        return
+  }
+
+}
+
+
+
+    function font() {
+      for (let index = 0; index < display.value.length; index++) {
+        if(display.value.length === 14) {
+          display.style.fontSize = "24px"
+        }
+        else if (display.value.length === 18) {
+          display.style.fontSize = "20px"
+        }
+        else if (display.value.length === 22) {
+          display.style.fontSize = "16px"
+        }
+        else if (display.value.length === 26) {
+          display.style.fontSize = "12px"
+        }
+        else if (display.value.length === 36) {
+          display.style.fontSize = "10px"
+        }
+        else if (display.value.length === 42) {
+          display.style.fontSize = "8px"
+        }
+      }
+    }
 
 
 
