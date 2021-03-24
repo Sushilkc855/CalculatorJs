@@ -58,9 +58,14 @@ let value1= [];
 
 
           else{
+            if(display.value.length >= 25){   // The calculator display can only hold maximun 25 num. 
+              alert('Too many numbers, my brain hurts')
+            }
+            else{
               display.value += b;
               font();
-          }
+            }
+            }
       
     };
 
@@ -93,31 +98,19 @@ function operaotrs(){
 
 }
 
-
-
-    function font() {
-      for (let index = 0; index < display.value.length; index++) {
-        if(display.value.length === 14) {
-          display.style.fontSize = "24px"
-        }
-        else if (display.value.length === 18) {
-          display.style.fontSize = "20px"
-        }
-        else if (display.value.length === 22) {
-          display.style.fontSize = "16px"
-        }
-        else if (display.value.length === 26) {
-          display.style.fontSize = "12px"
-        }
-        else if (display.value.length === 36) {
-          display.style.fontSize = "10px"
-        }
-        else if (display.value.length === 42) {
-          display.style.fontSize = "8px"
-        }
-      }
+function font() {  // for the fontsize. 
+  for (let index = 0; index < display.value.length; index++) { // if the display has more then 0 numbers this loops.   
+    if(display.value.length === 14) {  // if true the font size changes to fit the display. 
+      display.style.fontSize = "24px"
     }
-
+    else if (display.value.length === 18) { // if true the font size changes to fit the display. 
+      display.style.fontSize = "20px"
+    }
+    else if (display.value.length === 22) {   // if true the font size changes to fit the display. 
+      display.style.fontSize = "16px"
+    }
+  }
+}
 
 
 
